@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { createRef, useEffect, useRef, useState } from "react";
+import { AiOutlineMenu } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import Container from "../Container.styled";
 import ProfileSubMenu from "../profileSubMenu/ProfileSubMenu";
 import Button from "../ui/Button.styled";
 import InputBox from "../ui/Input.styled";
 import {
+    MobileMenuIcon,
     NavBar,
     NavBrand,
     NavLeft,
@@ -28,7 +30,7 @@ export default function Navbar() {
 
     // menu open handler
     const menuOpenHandler = () => {
-        setIsOpen((prev) => setIsOpen(!prev));
+        setIsOpen(!isOpen);
     };
 
     // menu refarence
@@ -58,6 +60,9 @@ export default function Navbar() {
             <Container>
                 <NavBar>
                     <NavLeft>
+                        <MobileMenuIcon>
+                            <AiOutlineMenu />
+                        </MobileMenuIcon>
                         <NavBrand>
                             <h2> DEV </h2>
                         </NavBrand>

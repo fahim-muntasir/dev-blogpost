@@ -13,6 +13,8 @@ const theme = {
         secondary: "white",
         primary_hover: "#6366f133",
         text_gray: "#4b5563",
+        bodyColor: "#F5F5F5",
+        dark: "#000000",
     },
 };
 

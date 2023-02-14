@@ -11,9 +11,9 @@ export const NavBar = styled.header`
 export const NavLeft = styled.div`
     display: flex;
     justify-content: flex-start;
-    width: 450px;
+    width: 500px;
     @media (max-width: 768px) {
-        width: 80px;
+        width: 150px;
     }
 `;
 
@@ -90,4 +90,26 @@ export const ProfileImg = styled.div`
 
 export const NavMain = styled.div`
     border-bottom: 1px solid #ddd;
+    background-color: ${(props) => props.theme.colors.secondary};
+`;
+
+export const MobileMenuIcon = styled.div`
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    background-color: #dddddd8f;
+    padding: 0 5px;
+    border-radius: 5px;
+    display: none;
+    &:hover {
+        background-color: ${(props) => props.theme.colors.primary_hover};
+        transition: 0.1s;
+    }
+    svg {
+        cursor: pointer;
+    }
+    @media (max-width: 768px) {
+        display: flex;
+    }
 `;

@@ -13,6 +13,7 @@ html, body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background-color: ${(props) => props.theme.colors.bodyColor};
 }
 img, picture, video, canvas, svg {
   display: block;
@@ -36,6 +37,7 @@ ul{
 a {
         text-decoration: none;
     }
+
 `;
 
 export default GlobalStyle;
