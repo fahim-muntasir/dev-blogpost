@@ -20,11 +20,13 @@ const theme = {
 
 export default function App({ Component, pageProps }) {
     return (
-        <ThemeProvider theme={theme}>
-            <main className={roboto.className}>
-                <GlobalStyle />
-                <Component {...pageProps} />
-            </main>
-        </ThemeProvider>
+        <>
+            <ThemeProvider theme={theme}>
+                <main className={roboto.className}>
+                    <GlobalStyle />
+                    <Component {...pageProps} />
+                </main>
+            </ThemeProvider>
+        </>
     );
 }

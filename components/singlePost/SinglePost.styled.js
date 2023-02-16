@@ -20,6 +20,8 @@ export const PostInfo = styled.div`
 
 export const PostAdminImg = styled.div`
     margin-right: 10px;
+    display: flex;
+    gap: 8px;
     img {
         border-radius: 100%;
     }
@@ -31,6 +33,9 @@ export const PostAuthor = styled.h3`
     margin-bottom: -6px;
     &:hover {
         text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+        font-size: 16px;
     }
 `;
 
@@ -44,7 +49,10 @@ export const PostTitle = styled.h1`
     margin-top: 15px;
     margin-bottom: 15px;
     &:hover {
-        text-decoration: underline;
+        text-decoration: ${(props) => (props.ul ? "underline" : "none")};
+    }
+    @media (max-width: 768px) {
+        font-size: 28px;
     }
 `;
 

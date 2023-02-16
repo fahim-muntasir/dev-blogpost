@@ -42,7 +42,7 @@ export default function SinglePost() {
                             <PostAuthor>Fahim muntasir</PostAuthor>
                             <PostDate>3 Feb (2 h ago) </PostDate>
                         </div>
-                        <PostTitle>
+                        <PostTitle ul>
                             Optimizing Functional React Components
                         </PostTitle>
                         <Tags>

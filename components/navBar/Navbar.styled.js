@@ -91,6 +91,9 @@ export const ProfileImg = styled.div`
 export const NavMain = styled.div`
     border-bottom: 1px solid #ddd;
     background-color: ${(props) => props.theme.colors.secondary};
+    position: sticky;
+    top: 0;
+    z-index: 50;
 `;
 
 export const MobileMenuIcon = styled.div`
