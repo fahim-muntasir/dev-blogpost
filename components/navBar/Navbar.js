@@ -78,7 +78,7 @@ export default function Navbar() {
                         <SearchIcon_M>
                             <BsSearch />
                         </SearchIcon_M>
-                        <Button>Create Post</Button>
+                        <Button outline>Create Post</Button>
                         <ProfileImg>
                             <Image
                                 ref={profileImgRef}

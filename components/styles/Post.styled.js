@@ -14,6 +14,8 @@ export const PostContainer = styled.div`
 
 export const PostMain = styled.div`
     margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px 5px 0px 0px;
 `;
 
 export const PostContent = styled.div`
@@ -100,8 +102,6 @@ export const PostDescription = styled.div`
         margin-top: 20px;
     }
 `;
-
-export const CommentSection = styled.div``;
 
 export const PostAuthorInfo = styled.div`
     @media (max-width: 1000px) {

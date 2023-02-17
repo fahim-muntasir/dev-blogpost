@@ -12,6 +12,7 @@ const theme = {
         primary: "#4f46e5",
         secondary: "white",
         primary_hover: "#6366f133",
+        secondary_hover: "#dddddd8f",
         text_gray: "#4b5563",
         bodyColor: "#F5F5F5",
         dark: "#000000",

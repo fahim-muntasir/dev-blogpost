@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import CommentLists from "@/components/postComments/CommentLists";
 import {
     PostAdminImg,
     PostAuthor,
@@ -8,7 +9,6 @@ import {
     Tags,
 } from "@/components/singlePost/SinglePost.styled";
 import {
-    CommentSection,
     PostAction,
     PostActionContainer,
     PostAuthorInfo,
@@ -97,7 +97,8 @@ export default function post() {
                             </p>
                         </PostDescription>
                     </PostContent>
-                    <CommentSection>Comment</CommentSection>
+                    {/* comment section  */}
+                    <CommentLists />
                 </PostMain>
                 <PostAuthorInfo>{/* TODO work */}</PostAuthorInfo>
             </PostContainer>
