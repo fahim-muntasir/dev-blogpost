@@ -11,7 +11,7 @@ const Button = styled.button`
             : props.theme.colors.secondary};
     cursor: pointer;
     font-size: 15px;
-    padding: 0 8px;
+    padding: ${(props) => (props.lg ? "5px 10px" : "0 8px")};
     align-items: center;
     &:hover {
         background-color: ${(props) => props.theme.colors.primary};

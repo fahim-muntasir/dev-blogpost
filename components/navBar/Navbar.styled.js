@@ -73,6 +73,7 @@ export const SearchIcon = styled.div`
 export const NavRight = styled.div`
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 `;
 
 export const ProfileImg = styled.div`

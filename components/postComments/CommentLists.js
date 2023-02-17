@@ -19,7 +19,7 @@ export default function CommentLists() {
                 <Image src="/mypic.jpeg" alt="mypic" width={32} height={32} />
                 <div>
                     <Textarea placeholder="Add to the discussion" />
-                    <Button>Submit</Button>
+                    <Button lg>Submit</Button>
                 </div>
             </CommentBox>
 

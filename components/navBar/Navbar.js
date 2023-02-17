@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { createRef, useEffect, useRef, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
@@ -64,7 +65,9 @@ export default function Navbar() {
                             <AiOutlineMenu />
                         </MobileMenuIcon>
                         <NavBrand>
-                            <h2> DEV </h2>
+                            <Link href="/">
+                                <h2> DEV </h2>
+                            </Link>
                         </NavBrand>
                         <SearchBox>
                             <InputBox type="text" placeholder="Search" />
@@ -78,7 +81,11 @@ export default function Navbar() {
                         <SearchIcon_M>
                             <BsSearch />
                         </SearchIcon_M>
-                        <Button outline>Create Post</Button>
+                        <Link href="/new">
+                            <Button outline lg>
+                                Create Post
+                            </Button>
+                        </Link>
                         <ProfileImg>
                             <Image
                                 ref={profileImgRef}
