@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const InputBox = styled.input`
     box-sizing: border-box;
-    padding: 5px 20px;
+    padding: ${(props) => (props.lg ? "12px 20px" : "5px 20px")};
+    margin-bottom: ${(props) => (props.lg ? "20px" : "0")};
     width: 100%;
     outline: none;
     border-radius: 5px;
