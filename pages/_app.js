@@ -1,4 +1,6 @@
 import GlobalStyle from "@/components/GlobalStyled";
+import useAuthCheck from "@/hooks/useAuthCheck";
+import { wrapper } from "@/store/store";
 import { Roboto } from "@next/font/google";
 import { ThemeProvider } from "styled-components";
 
@@ -19,15 +21,19 @@ const theme = {
     },
 };
 
-export default function App({ Component, pageProps }) {
-    return (
-        <>
-            <ThemeProvider theme={theme}>
-                <main className={roboto.className}>
-                    <GlobalStyle />
-                    <Component {...pageProps} />
-                </main>
-            </ThemeProvider>
-        </>
+function App({ Component, pageProps }) {
+    const authCheck = useAuthCheck();
+
+    return !authCheck ? (
+        <div>Loading...</div>
+    ) : (
+        <ThemeProvider theme={theme}>
+            <main className={roboto.className}>
+                <GlobalStyle />
+                <Component {...pageProps} />
+            </main>
+        </ThemeProvider>
     );
 }
+
+export default wrapper.withRedux(App);

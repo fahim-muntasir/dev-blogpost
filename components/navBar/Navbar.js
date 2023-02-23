@@ -4,6 +4,7 @@ import Link from "next/link";
 import { createRef, useEffect, useRef, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
+import { useSelector } from "react-redux";
 import Container from "../Container.styled";
 import ProfileSubMenu from "../profileSubMenu/ProfileSubMenu";
 import Button from "../ui/Button.styled";
@@ -28,7 +29,7 @@ const variants = {
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-
+    const { accessToken, user } = useSelector((state) => state.auth);
     // menu open handler
     const menuOpenHandler = () => {
         setIsOpen(!isOpen);
@@ -81,27 +82,50 @@ export default function Navbar() {
                         <SearchIcon_M>
                             <BsSearch />
                         </SearchIcon_M>
-                        <Link href="/new">
-                            <Button outline lg>
-                                Create Post
-                            </Button>
-                        </Link>
-                        <ProfileImg>
-                            <Image
-                                ref={profileImgRef}
-                                onClick={menuOpenHandler}
-                                src="/mypic.jpeg"
-                                alt="profile"
-                                width={40}
-                                height={40}
-                            />
-                        </ProfileImg>
-                        <motion.div
-                            animate={isOpen ? "open" : "closed"}
-                            variants={variants}
-                        >
-                            {isOpen && <ProfileSubMenu ref={menuRef} />}
-                        </motion.div>
+                        {accessToken && user ? (
+                            <>
+                                <Link href="/new">
+                                    <Button outline lg>
+                                        Create Post
+                                    </Button>
+                                </Link>
+                                <ProfileImg>
+                                    <Image
+                                        ref={profileImgRef}
+                                        onClick={menuOpenHandler}
+                                        src="/mypic.jpeg"
+                                        alt="profile"
+                                        width={40}
+                                        height={40}
+                                    />
+                                </ProfileImg>
+                                <motion.div
+                                    animate={isOpen ? "open" : "closed"}
+                                    variants={variants}
+                                >
+                                    {isOpen && <ProfileSubMenu ref={menuRef} />}
+                                </motion.div>
+                            </>
+                        ) : (
+                            <>
+                                <Link href="/login">
+                                    <Button outline lg>
+                                        Login
+                                    </Button>
+                                </Link>
+                                <Link href="/registration">
+                                    <Button outline lg>
+                                        Create account
+                                    </Button>
+                                </Link>
+                                <motion.div
+                                    animate={isOpen ? "open" : "closed"}
+                                    variants={variants}
+                                >
+                                    {isOpen && <ProfileSubMenu ref={menuRef} />}
+                                </motion.div>
+                            </>
+                        )}
                     </NavRight>
                 </NavBar>
             </Container>

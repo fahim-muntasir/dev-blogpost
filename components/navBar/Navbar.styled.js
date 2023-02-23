@@ -74,6 +74,7 @@ export const NavRight = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    gap: 5px;
 `;
 
 export const ProfileImg = styled.div`
