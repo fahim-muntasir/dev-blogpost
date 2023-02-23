@@ -34,6 +34,7 @@ export const MenuItems = styled.ul`
     border-top: 1px solid #ddd;
     padding-top: 8px;
 
+    button,
     a {
         padding: 8px 10px;
         display: block;
@@ -44,5 +45,12 @@ export const MenuItems = styled.ul`
             color: ${(props) => props.theme.colors.primary};
             text-decoration: underline;
         }
+    }
+
+    button {
+        border: none;
+        background-color: #eef2ff;
+        width: 100%;
+        cursor: pointer;
     }
 `;
