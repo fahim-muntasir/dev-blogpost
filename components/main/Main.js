@@ -9,3 +9,13 @@ export default function Main() {
         </MainSection>
     );
 }
+
+// export async function getServerSideProps() {
+//     return {
+//     //   redirect: {
+//     //     permanent: false,
+//     //     destination: "/login",
+//     //   },
+//       props:{}
+//     }
+//   }
