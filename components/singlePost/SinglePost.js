@@ -1,3 +1,4 @@
+import moment from "moment/moment";
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -15,19 +16,34 @@ import {
     Tags,
 } from "./SinglePost.styled";
 
-export default function SinglePost() {
+export default function SinglePost({ data, id }) {
+    const { title, author, publishedAt, tags, Likes, total_comments, avatar } =
+        data || {};
+
+    let tagContent = null;
+    if (tags?.length > 0) {
+        tagContent = tags.map((tag) => (
+            <TagBtn key={tag.id}># {tag.text}</TagBtn>
+        ));
+    }
+
     return (
         <MainDiv>
-            <Link href="/">
+            <Link href={`/posts/${id}`}>
                 <PostBanner>
-                    <Image
-                        src="/pic03.jpg"
+                    {/* <Image
+                        src={`${avatar?.data?.[0]?.attributes?.formats?.large?.url}`}
                         alt="post_banner"
                         objectFit="contain"
                         height={250}
                         width={700}
+                    /> */}
+                    <img
+                        src={`http://localhost:1337${avatar?.data?.[0]?.attributes?.formats?.large?.url}`}
+                        alt="bannerImg"
                     />
                 </PostBanner>
+
                 <PostInfo>
                     <PostAdminImg>
                         <Image
@@ -39,23 +55,20 @@ export default function SinglePost() {
                     </PostAdminImg>
                     <div>
                         <div>
-                            <PostAuthor>Fahim muntasir</PostAuthor>
-                            <PostDate>3 Feb (2 h ago) </PostDate>
+                            <PostAuthor>{author}</PostAuthor>
+                            <PostDate>
+                                {moment(publishedAt).format("MMM Do")} (
+                                {moment(publishedAt, "YYYYMMDD").fromNow()})
+                            </PostDate>
                         </div>
-                        <PostTitle ul>
-                            Optimizing Functional React Components
-                        </PostTitle>
-                        <Tags>
-                            <TagBtn>#github</TagBtn>
-                            <TagBtn>#github</TagBtn>
-                            <TagBtn>#github</TagBtn>
-                        </Tags>
+                        <PostTitle ul>{title}</PostTitle>
+                        <Tags>{tagContent}</Tags>
                         <PostFooter>
                             <TagBtn>
-                                <AiOutlineHeart /> 8 Reaction
+                                <AiOutlineHeart /> {Likes} Reaction
                             </TagBtn>
                             <TagBtn>
-                                <BiComment /> 8 Comments
+                                <BiComment /> {total_comments} Comments
                             </TagBtn>
                             <span>5 min read</span>
                         </PostFooter>

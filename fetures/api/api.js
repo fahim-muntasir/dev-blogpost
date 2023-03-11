@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { HYDRATE } from "next-redux-wrapper";
 
 const baseQuery = fetchBaseQuery({
     baseUrl: "http://localhost:1337/api",
@@ -24,6 +25,11 @@ const api = createApi({
             localStorage.clear();
         }
         return result;
+    },
+    extractRehydrationInfo(action, { reducerPath }) {
+        if (action.type === HYDRATE) {
+            return action.payload[reducerPath];
+        }
     },
     endpoints: (builder) => ({}),
 });

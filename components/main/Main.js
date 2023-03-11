@@ -1,21 +1,26 @@
+import { useGetPostsQuery } from "@/fetures/post/postApi";
 import SinglePost from "../singlePost/SinglePost";
 import { MainSection } from "./Main.styled";
 
 export default function Main() {
-    return (
-        <MainSection>
-            <SinglePost />
-            <SinglePost />
-        </MainSection>
-    );
-}
+    const { data: posts, isLoading, isError } = useGetPostsQuery();
+    const { data } = posts || {};
+    console.log(data);
 
-// export async function getServerSideProps() {
-//     return {
-//     //   redirect: {
-//     //     permanent: false,
-//     //     destination: "/login",
-//     //   },
-//       props:{}
-//     }
-//   }
+    let content = null;
+    if (data) {
+        content = data.map((post) => (
+            <SinglePost key={post.id} data={post?.attributes} id={post.id} />
+        ));
+    }
+
+    if (!data && isLoading) {
+        content = <div>Loading...</div>;
+    }
+
+    if (!isLoading && isError) {
+        content = <div>Error!</div>;
+    }
+
+    return <MainSection>{content}</MainSection>;
+}

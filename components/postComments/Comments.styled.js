@@ -53,7 +53,7 @@ export const CommentListMain = styled.div`
 `;
 
 export const CommentBox = styled(CommentMain)`
-    div {
+    form {
         width: 100%;
     }
 `;

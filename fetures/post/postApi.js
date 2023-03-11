@@ -3,7 +3,7 @@ import api from "../api/api";
 export const postApi = api.injectEndpoints({
     endpoints: (builder) => ({
         getPosts: builder.query({
-            query: () => "/posts",
+            query: () => "/posts?populate=*",
         }),
         createPost: builder.mutation({
             query: (data) => ({

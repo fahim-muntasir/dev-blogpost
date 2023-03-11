@@ -8,19 +8,15 @@ import {
     CommentText,
 } from "./Comments.styled";
 
-export default function SingleComment() {
+export default function SingleComment({ data }) {
+    const { text } = data?.attributes || {};
+
     return (
         <CommentMain>
             <Image src="/mypic.jpeg" alt="mypic" width={32} height={32} />
             <CommentContent>
                 <CommentText>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Labore ad nesciunt expedita dolore exercitationem,
-                        consequuntur voluptatum ex non recusandae, laboriosam
-                        suscipit eius dignissimos aperiam architecto, quis vitae
-                        quisquam iusto? Fugit!
-                    </p>
+                    <p>{text}</p>
                 </CommentText>
                 <CommentAction>
                     <button>
