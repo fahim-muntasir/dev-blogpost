@@ -14,6 +14,7 @@ export const CommentContent = styled.div``;
 export const CommentAction = styled.div`
     display: flex;
     gap: 10px;
+    margin-bottom: 10px;
     button {
         display: flex;
         border: none;

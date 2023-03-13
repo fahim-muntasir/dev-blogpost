@@ -3,8 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import AlertMessage from "../ui/AlertMessage.styled";
-import Button from "../ui/Button.styled";
-import Textarea from "../ui/Textarea";
+import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
 import {
     CommentBox,
@@ -56,19 +55,15 @@ export default function Comment({ postId }) {
 
             <CommentBox>
                 <Image src="/mypic.jpeg" alt="mypic" width={32} height={32} />
-                <form onSubmit={commentHandler}>
-                    <Textarea
-                        placeholder="Add to the discussion"
-                        value={commentText}
-                        onChange={(e) => setCommentText(e.target.value)}
-                    />
-                    <Button lg disabled={isLoading}>
-                        Submit
-                    </Button>
-                </form>
+                <CommentForm
+                    commentHandler={commentHandler}
+                    isLoading={isLoading}
+                    commentText={commentText}
+                    setCommentText={setCommentText}
+                />
             </CommentBox>
 
-            <CommentList />
+            <CommentList postId={postId} />
         </CommentListMain>
     );
 }

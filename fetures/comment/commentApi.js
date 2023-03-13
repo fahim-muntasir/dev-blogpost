@@ -3,7 +3,8 @@ import api from "../api/api";
 export const commentApi = api.injectEndpoints({
     endpoints: (builder) => ({
         getComments: builder.query({
-            query: () => "/comments?populate=*",
+            query: (id) =>
+                `/comments?sort[0]=createdAt:DESC&&filters[posts_id][$eq]=${id}&&populate=*`,
         }),
         createComment: builder.mutation({
             query: (data) => ({
@@ -21,7 +22,7 @@ export const commentApi = api.injectEndpoints({
                     dispatch(
                         api.util.updateQueryData(
                             "getComments",
-                            undefined,
+                            data?.posts_id,
                             (draft) => {
                                 draft.data.unshift(updateComment?.data);
                             }
